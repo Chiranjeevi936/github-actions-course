@@ -6,7 +6,7 @@ on:
   workflow_dspatch:
 jobs:
   job1:
-    runner: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: say hello
         run: echo "Hi ! there"
