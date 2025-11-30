@@ -1,0 +1,13 @@
+name: my-first-action
+on:
+  push:
+    branches:
+    - main
+  workflow_dspatch:
+jobs:
+  job1:
+    runner: ubuntu-latest
+    steps:
+      - name: say hello
+        run: echo "Hi ! there"
+
