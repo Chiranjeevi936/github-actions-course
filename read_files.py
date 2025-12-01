@@ -1,6 +1,6 @@
 from  pathlib import Path
 
-files_list = sorted(Path('.').glob(pattern =  './file*'))
+files_list = sorted(Path('files').glob(pattern =  './file*'))
 
 for  file in files_list:
     content = file.read_text()

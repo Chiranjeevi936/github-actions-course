@@ -28,6 +28,7 @@ jobs:
       - uses:  actions/download-artifact@v5
         with:
           name: files
+          path: files
       - name: display file names
         run: ls -alrt
       - uses: actions/checkout@v3
