@@ -8,11 +8,27 @@ on:
 jobs:
   outputs_test:
     runs-on: ubuntu-latest
+    outputs:
+      - ROCM_VERSION: ${{ steps.set_rocm_version.outputs.ROCM_VERSION}}
+      - VERSION_ID: ${{ steps.set_os_version_id.outputs.VERSION_ID}}
     env:
       ROCM_VERSION: "7.11"
     steps:
       - uses: actions/setup-python@v4
-      - name: print env step1
-        run : python3 -c "import os;print(os.environ.keys())"
-      - name: printenv step2
-        run: python3 -c "import os;print(os.environ.keys())"
+      - id: set_rocm_version
+        run: echo "ROCM_VERSION=${{ env.ROCM_VERSION }}" >> $GITHUB_OUTPUT
+      - id: set_os_version_id
+        run: cat /etc/os-relese | grep -i version_id >> $GITHUB_OUTPUT
+
+  fetch_outputs:
+    needs: outputs_test
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo outputs
+        run: |
+          echo "${{  needs.outputs_tests.outputs.ROCM_VERSION }}"
+          echo "${{  needs.outputs_tests.outputs.VERSION_ID }}"
+
+      
+
+
