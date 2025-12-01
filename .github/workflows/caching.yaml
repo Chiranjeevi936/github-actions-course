@@ -2,7 +2,7 @@ name: caching
 
 on:
   workflow_dispatch:
-  push:
+  # push:
     branches:
       - main
 
