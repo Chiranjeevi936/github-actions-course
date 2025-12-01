@@ -9,8 +9,8 @@ jobs:
   outputs_test:
     runs-on: ubuntu-latest
     outputs:
-      - ROCM_VERSION: ${{ steps.set_rocm_version.outputs.ROCM_VERSION}}
-      - VERSION_ID: ${{ steps.set_os_version_id.outputs.VERSION_ID}}
+      ROCM_VERSION: ${{ steps.set_rocm_version.outputs.ROCM_VERSION}}
+      VERSION_ID: ${{ steps.set_os_version_id.outputs.VERSION_ID}}
     env:
       ROCM_VERSION: "7.11"
     steps:
