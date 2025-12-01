@@ -26,8 +26,8 @@ jobs:
     steps:
       - name: echo outputs
         run: |
-          echo "${{  needs.outputs_tests.outputs.ROCM_VERSION }}"
-          echo "${{  needs.outputs_tests.outputs.VERSION_ID }}"
+          echo "${{  needs.outputs_test.outputs.ROCM_VERSION }}"
+          echo "${{  needs.outputs_test.outputs.VERSION_ID }}"
 
       
 
