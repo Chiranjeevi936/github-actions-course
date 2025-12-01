@@ -18,7 +18,7 @@ jobs:
       - id: set_rocm_version
         run: echo "ROCM_VERSION=${{ env.ROCM_VERSION }}" >> $GITHUB_OUTPUT
       - id: set_os_version_id
-        run: cat /etc/os-relese | grep -i version_id >> $GITHUB_OUTPUT
+        run: cat /etc/os-release | grep -i version_id >> $GITHUB_OUTPUT
 
   fetch_outputs:
     needs: outputs_test
