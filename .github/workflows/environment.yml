@@ -1,8 +1,8 @@
 name: environment
 
 on:
-workflow_dispatch:
-push:
+  push:
+  workflow_dispatch:
 
 
 jobs:
