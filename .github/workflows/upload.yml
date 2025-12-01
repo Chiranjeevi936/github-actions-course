@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v3
       - name: create files
-        run: python create-files.yaml
+        run: python create-files.py
       - uses: actions/upload-artifact@v4
         with:
           name: files
