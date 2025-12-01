@@ -24,14 +24,14 @@ jobs:
   test_download:
     runs-on: ubuntu-latest
     needs: test_upload
-    steps:    
+    steps: 
+      - uses: actions/checkout@v3   
       - uses:  actions/download-artifact@v5
         with:
           name: files
           path: files
       - name: display file names
         run: ls -alrt
-      - uses: actions/checkout@v3
       - name: display file names
         run: ls -alrt
       - uses: actions/setup-python@v3
