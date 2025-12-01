@@ -10,10 +10,10 @@ jobs:
     environment: main
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ env.ENV_TYPE }}"
+      - run: echo "${{ vars.ENV_TYPE }}"
 
   job2:
     environment: prod
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ env.ENV_TYPE }}"
+      - run: echo "${{ vars.ENV_TYPE }}"
