@@ -15,6 +15,25 @@ jobs:
       uses: actions/checkout@v4
     - name: setup python
       uses: actions/setup-python@v4
+    - name: caching
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache/pip
+        key: pip-cache-${{ runner.os }}-${{ hashFiles('requirements.txt') }}
     - run: |
         time python -m pip install -r requirements.txt
+
+
+  job2:
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v3
+      - name: caching
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: pip-cache-${{ runner.os }}-${{ hashFiles('requirements.txt') }}
+      - run: |
+          time python -m pip install -r requirements.txt
 
