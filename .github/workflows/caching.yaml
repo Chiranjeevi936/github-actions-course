@@ -1,0 +1,20 @@
+name: caching 
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v4
+    - name: setup python
+      uses: actions/setup-python@v4
+    - run: |
+        time python -m pip install -r requirements.txt
+
