@@ -7,13 +7,13 @@ on:
 
 jobs:
   test_upload:
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-python@v3
-    - name: create files
-      run: python create-files.yaml
-    - name: upload created files
-      uses: actions/upload-artifact@v3
-      path: |
-        file*
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+      - name: create files
+        run: python create-files.yaml
+      - name: upload created files
+        uses: actions/upload-artifact@v3
+        path: |
+          file*
