@@ -32,8 +32,6 @@ jobs:
           path: files
       - name: display file names
         run: ls -alrt
-      - name: display file names
-        run: ls -alrt
       - uses: actions/setup-python@v3
       - name: display contents
         run: python read_files.py
