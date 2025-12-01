@@ -1,12 +1,12 @@
 name: contexts and expression
 
 on:
-  push:
+  # push:
   workflow_dispatch:
 
 jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - name: print githun context values
-        run: echo "${{ toJSON(github) }}"
+      - name: print github context values
+        run: echo "${{ toJSON(github.events) }}"

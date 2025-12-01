@@ -1,0 +1,17 @@
+name: understanding events
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+    branches:
+      - main
+  # push:
+  #   branches:
+  #     - main
+
+jobs:
+  job1:
+  runs-on: ubuntu-latest
+  steps:
+    - name: 
