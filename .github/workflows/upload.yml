@@ -1,9 +1,9 @@
 name: test upload
 
 on:
-  push:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
 
 jobs:
   test_upload:
