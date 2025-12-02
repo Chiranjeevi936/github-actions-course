@@ -17,8 +17,9 @@ jobs:
     steps:
       - id: step_4
         run: echo "This is Step4" && exit 100
-      - if: ${{ steps.step_4.outcome == 'failure' }}
+      - if: steps.step_4.outcome == 'failure' 
         run: echo "This is Step5"
+      - run: echo "This is Step5.5"
 
   job3:
     runs-on: ubuntu-latest
