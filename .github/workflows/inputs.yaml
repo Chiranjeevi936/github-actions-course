@@ -31,7 +31,7 @@ jobs:
       - name: setp python
         uses: actions/setup-python@v6
       - id: check_file
-        run: python -c "from pathlib import Path;open('${{ GITHUB_OUTPUT }}','a').write( 'RESULT=exist' if Path('${{ inputs.file_name }}').exists() else 'RESULT=notExist')"
+        run: python -c "from pathlib import Path;import os;open('${{ os.environ.get('GITHUB_OUTPUT') }}','a').write( 'RESULT=exist' if Path('${{ inputs.file_name }}').exists() else 'RESULT=notExist')"
 
 
 
