@@ -24,7 +24,7 @@ jobs:
     needs: upload
     runs-on: ubuntu-latest
     steps:
-    - uses: ./.github/workflows/inputs.yaml
+    - uses: .github/workflows/inputs.yaml
       with:
         artifact_name: ${{ env.ARTIFACT_NAME }}
         file_name: file3.yaml
