@@ -16,6 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: step_4
+        continue-on-error: true
         run: echo "This is Step4" && exit 100
       - if: failure()
         run: echo "This is Step5"
