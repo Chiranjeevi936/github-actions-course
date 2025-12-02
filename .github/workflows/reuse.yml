@@ -10,6 +10,7 @@ jobs:
     steps:
       - name: greet users
         run: echo "Hello! World"
-  
-  caller:
-    uses: ./.github/workflows/matrix.yaml
+      - run: exit 100
+      - if: always()
+        run: printenv
+
