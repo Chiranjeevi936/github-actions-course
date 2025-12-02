@@ -5,14 +5,29 @@ on:
   workflow_dispatch:
 
 jobs:
-  greet:
+  upload:
     runs-on: ubuntu-latest
+    env:
+      ARTIFACT_NAME: files
     steps:
-      - name: greet users
-        run: echo "Hello! World"
-      - run: exit 100
-      - if: always()
-        run: printenv
-      - if: always()
-        run: echo "${{ job.status }}"
+      - name: checkout
+        uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+      - run: python create-files.py
+      - uses: actions/upload-artifacts@v4
+        with: 
+          name: ${{ env.ARTIFACT_NAME }}
+          path: file*
+  
+  call:
+    needs: upload
+    uses: ./.github/workflows/inputs.yaml
+    with:
+      artifact_name: ${{ env.ARTIFACT_NAME }}
+      file_name: file3.yaml
+  
+  check_file:
+    needs: call
+    runs-on: ubuntu-latest
+    run: echo "${{ needs.call.outputs.file_exist_msg }}"
 

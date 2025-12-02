@@ -1,8 +1,38 @@
-# name: inputs
+name: inputs
 
-# on:
-#   workflow_call:
-#   workflow_dispatch:
+on:
+  workflow_call:
+    inputs:
+      artifact_name:
+        type: string
+        required: true
+        description: Artifact name to search the file
+      file_name:
+        type: string
+        required: true
+        description: File name to search in artifact
+    outputs:
+      file_exist_msg:
+        value: ${{ jobs.job1.outputs.result }}
+        type: string
+      
+  workflow_dispatch:
 
-# jobs:
-#   job1:
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    outputs:
+      result: ${{ steps.check_file.outputs.RESULT}}
+    steps:
+      - name: download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.artifact_name }}
+      - name: setp python
+        uses: actions/setup-python@v6
+      - id: check_file
+        run: python -c "from pathlib import Path;open('${{ GITHUB_OUTPUT }}','a').write( 'RESULT=exist' if Path('${{ inputs.file_name }}').exists() else 'RESULT=notExist')"
+
+
+
+    
