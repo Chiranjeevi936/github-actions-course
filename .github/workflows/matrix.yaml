@@ -3,6 +3,7 @@ name: matrix
 on:
   push:
   workflow_dispatch:
+  worflow_call:
 
 jobs:
   job1:
