@@ -22,13 +22,15 @@ jobs:
   
   call:
     needs: upload
-    uses: ./.github/workflows/inputs.yaml
-    with:
-      artifact_name: ${{ env.ARTIFACT_NAME }}
-      file_name: file3.yaml
-  
+    steps:
+    - uses: ./.github/workflows/inputs.yaml
+      with:
+        artifact_name: ${{ env.ARTIFACT_NAME }}
+        file_name: file3.yaml
+    
   check_file:
     needs: call
     runs-on: ubuntu-latest
-    run: echo "${{ needs.call.outputs.file_exist_msg }}"
+    steps:
+      - run: echo "${{ needs.call.outputs.file_exist_msg }}"
 
