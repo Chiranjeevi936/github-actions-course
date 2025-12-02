@@ -1,0 +1,13 @@
+name: container
+
+
+on:
+  push:
+    
+jobs:
+  job1:
+  container:
+    runs-on: ubuntu-latest
+    image: redhat/ubi8:latest-source
+    steps:
+      - run: cat /etc/os-release
