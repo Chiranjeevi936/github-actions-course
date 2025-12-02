@@ -17,3 +17,5 @@ jobs:
         run: echo "${{ matrix.files }}-${{ matrix.colors }}" > ${{ matrix.files }}-${{ matrix.colors }}.txt
       - name: list dir
         run: ls -alrt
+      - name: show contents
+        run: cat ${{ matrix.files }}-${{ matrix.colors }}.txt
