@@ -11,6 +11,9 @@ jobs:
       matrix:
         files: [ "file1" , "file2", "file3"]
         colors: ["red", "green", "blue"]
+        include:
+          - files: "file4"
+          - code: "#45#"
     
     steps:
       - name: create files
