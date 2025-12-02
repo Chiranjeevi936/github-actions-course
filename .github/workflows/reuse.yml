@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v4
       - uses: actions/setup-python@v4
       - run: python create-files.py
-      - uses: actions/upload-artifacts@v4
+      - uses: actions/upload-artifact@v4
         with: 
           name: ${{ env.ARTIFACT_NAME }}
           path: file*
