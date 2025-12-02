@@ -22,6 +22,7 @@ jobs:
   
   call:
     needs: upload
+    runs-on: ubuntu-latest
     steps:
     - uses: ./.github/workflows/inputs.yaml
       with:
