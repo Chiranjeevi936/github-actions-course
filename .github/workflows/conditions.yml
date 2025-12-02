@@ -17,7 +17,7 @@ jobs:
     steps:
       - id: step_4
         continue-on-error: true
-        run: echo "This is Step4" && exit 100
+        run: echo "This is Step4"
       - if: failure() || steps.step_4.outcome == 'failure'
         run: echo "This is Step5"
       - run: echo "This is Step5.5"
