@@ -4,11 +4,12 @@ on:
   push:
   workflow_dispatch:
 
+env:
+    ARTIFACT_NAME: files
+
 jobs:
   upload:
     runs-on: ubuntu-latest
-    env:
-      ARTIFACT_NAME: files
     steps:
       - name: checkout
         uses: actions/checkout@v4
