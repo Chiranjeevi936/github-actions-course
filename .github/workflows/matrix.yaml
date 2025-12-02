@@ -13,7 +13,7 @@ jobs:
         colors: ["red", "green", "blue"]
         include:
           - files: "file4"
-          - code: "#45#"
+          - code: [ "#45#" , "#3AB#"]
     
     steps:
       - name: create files
