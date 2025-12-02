@@ -1,0 +1,19 @@
+name: matrix
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        files: [ "file1" , "file2", "file3"]
+        colors: ["red", "green", "blue"]
+    
+    steps:
+      - name: create files
+        run: echo "${{ matrix.files }}-${{ matrix.colors }}" > ${{ matrix.files }}-${{ matrix.colors }}.txt
+      - name: list dir
+        run: ls -alrt
