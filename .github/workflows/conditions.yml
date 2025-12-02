@@ -1,0 +1,33 @@
+name: conditional
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This is Step1"
+      - run: echo "This is Step2"
+      - run: echo "This is Step3"
+
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - id: step_4
+        run: echo "This is Step4" && exit 100
+      - if: ${{ steps.step_4.outcome == 'success' }}
+        run: echo "This is Step5"
+
+  job3:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This is Step6"
+      - run: echo "This is Step7"
+
+  job4:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This is Step8"
+      - run: echo "This is Step9"
