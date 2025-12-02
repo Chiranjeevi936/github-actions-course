@@ -27,7 +27,7 @@ jobs:
     needs: upload
     uses: ./.github/workflows/inputs.yaml
     with:
-      artifact_name: ${{ env.ARTIFACT_NAME }}
+      artifact_name: files
       file_name: file3.yaml
 
   check_file:
