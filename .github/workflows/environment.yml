@@ -19,3 +19,9 @@ jobs:
     steps:
       - run: echo "${{ vars.ENV_TYPE }}"
       - run: echo "${{ secrets.JENKINS_TOKEN }}"
+
+      - name: configure aws
+        uses: aws-actions/configure-aws-credentials@main
+        with:
+          aws-region: us-east-2
+          role-to-assume: arn:aws:iam:692859939525:role/throck-check
