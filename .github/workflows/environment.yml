@@ -11,9 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "${{ vars.ENV_TYPE }}"
+      - run: echo "${{ secrets.JENKINS_TOKEN }}"
 
   job2:
     environment: prod
     runs-on: ubuntu-latest
     steps:
       - run: echo "${{ vars.ENV_TYPE }}"
+      - run: echo "${{ secrets.JENKINS_TOKEN }}"
